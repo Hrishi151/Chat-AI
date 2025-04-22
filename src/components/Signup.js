@@ -1,23 +1,27 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import SmileyIcon from "../images/smiley.png";
 import PhotoIcon from "../images/photo.png";
 
 const Signup = () => {
+  const navigate = useNavigate();
+
+  const handleGetStarted = (e) => {
+    e.preventDefault();
+    navigate("/home");
+  };
+
   return (
     <div className="flex min-h-screen font-sans">
       {/* Left Panel */}
       <div className="w-1/2 relative bg-gradient-to-br from-[#5B61F5] via-[#AE6BE9] to-[#F7A6A6] text-white p-16 flex flex-col justify-between overflow-hidden">
-        {/* Top Left - CHAT A.I+ Label */}
         <div className="absolute top-6 left-6 z-10">
-          <div className="iabsolute top-6 left-6 z-10 text-2xl font-bold tracking-wide">
-            CHAT A.I+
-          </div>
+          <div className="text-2xl font-bold tracking-wide">CHAT A.I+</div>
         </div>
 
         <div>
-          {/* Hero Heading */}
           <h1 className="text-5xl font-bold leading-tight text-left">
             Learn, Discover &
           </h1>
@@ -25,18 +29,15 @@ const Signup = () => {
             Automate in One Place.
           </h1>
 
-          {/* Simulated user message */}
           <p className="mt-10 mb-4 text-white text-sm">
             Create a chatbot gpt using python language what will be step for
             that
           </p>
 
-          {/* Chat A.I+ badge below question (you can remove if it's now shown top-left only) */}
           <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full bg-white/10 border border-white/20 text-xs font-semibold">
             CHAT A.I +
           </div>
 
-          {/* Bot response */}
           <div className="space-y-4 text-sm">
             <p>
               <strong>
@@ -71,7 +72,6 @@ const Signup = () => {
           </div>
         </div>
 
-        {/* Input bar */}
         <div className="mt-10">
           <div className="flex items-center px-4 py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-md">
             <img src={SmileyIcon} alt="Smiley" className="w-5 h-5 mr-3" />
@@ -98,7 +98,7 @@ const Signup = () => {
             </p>
           </div>
 
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleGetStarted}>
             <div className="text-left">
               <label
                 htmlFor="email"
