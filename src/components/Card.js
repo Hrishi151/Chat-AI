@@ -32,11 +32,20 @@ export default function Card({ title, description, type, image }) {
   // White card
   return (
     <div className="bg-white text-black p-5 rounded-2xl shadow-md w-[300px] h-full min-h-[160px] flex flex-col justify-between">
-      {image && (
+      {/* {image && (
         <div className="mb-3">
           <img src={image} alt={title} className="w-10 h-10 object-contain" />
         </div>
-      )}
+      )} */}
+      {image && (
+      <div className="mb-3">
+        <img
+          src={image}
+          alt={title}
+          className="w-10 h-10 object-cover rounded-full scale-110 transition-transform"
+        />
+      </div>
+    )}
 
       <div className="flex-grow">
         <h3 className="font-semibold text-lg mb-1">{title}</h3>

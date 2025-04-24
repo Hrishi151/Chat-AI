@@ -1,9 +1,27 @@
 import Sidebar from "../components/Sidebar";
 import TopBar from "../components/TopBar";
 import Card from "../components/Card";
-import ChatInputBar from "../components/ChatInputBar";
+import ChatInputBar from "../components/ChatInputBar";  
+import images from '../images/index';
+import UpgradeToProButton from '../components/UpgradeToButton';
+import { useState } from 'react';
 
 export default function Home() {
+  const [chats, setChats] = useState([
+    { id: '1', title: 'Explain Quantum Computing' },
+    { id: '2', title: 'How to make a search engine' },
+    // Add more chats as needed
+  ]);
+
+  const handleNewChat = () => {
+    const newChatId = String(Date.now()); // Using timestamp as a simple ID
+    const newChat = {
+      id: newChatId,
+      title: `New Chat ${chats.length + 1}`
+    };
+    setChats([newChat, ...chats]);
+  };
+
   const Divider = () => (
     <div className="flex flex-col justify-center items-center">
       <div className="flex flex-row space-x-[3px]">
@@ -15,8 +33,7 @@ export default function Home() {
   );
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      <Sidebar />
+    <div className="flex min-h-screen bg-gray-200">
       <main className="flex-1 px-2 py-4 pb-24">
         <TopBar />
 
@@ -36,14 +53,14 @@ export default function Home() {
                 <Card
                   title='"Explain"'
                   description="Quantum computing in simple terms"
-                  image="/images/explain.png"
+                  image={images.explain}
                 />
               </div>
               <div className="w-[300px]">
                 <Card
                   title='"How to"'
                   description="Make a search engine platform like google"
-                  image="/images/howto.png"
+                  image={images.howto}
                 />
               </div>
             </div>
@@ -64,14 +81,14 @@ export default function Home() {
                 <Card
                   title='"Remember"'
                   description="Quantum computing in simple terms"
-                  image="/images/remember.png"
+                  image={images.remember}
                 />
               </div>
               <div className="w-[300px]">
                 <Card
                   title='"Allows"'
                   description="User to provide follow-up corrections"
-                  image="/images/allows.png"
+                  image={images.allows}
                 />
               </div>
             </div>
@@ -92,14 +109,15 @@ export default function Home() {
                 <Card
                   title='"May"'
                   description="Occasionally generate incorrect information"
-                  image="/images/may.png"
+                  // image="./src/images/may.png"
+                  image={images.may}
                 />
               </div>
               <div className="w-[300px]">
                 <Card
                   title='"Limited"'
                   description="Knowledge of world and events after 2021"
-                  image="/images/limited.png"
+                  image={images.limited}
                 />
               </div>
             </div>
@@ -107,7 +125,9 @@ export default function Home() {
         </div>
 
         <ChatInputBar />
+        <UpgradeToProButton />
       </main>
     </div>
   );
 }
+
