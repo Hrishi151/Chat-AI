@@ -1,5 +1,7 @@
 # Chat A.I+
 
+🚨 **Note:** Authentication is not yet implemented. Clicking the **"Get Started Free"** button will directly navigate you to the next page without any login/signup flow.
+
 An interactive chat-based web app built with React that mimics the feel of a modern AI chatbot. Features include a stylish sidebar, new chat creation, persistent conversations, and responsive layout.
 
 ## 🖼️ Screenshots
